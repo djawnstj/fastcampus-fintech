@@ -1,14 +1,17 @@
 plugins {
-    id 'java'
     id 'org.springframework.boot' version '2.7.1'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
 }
 
-group = 'com.fastcampus'
-version = '0.0.1-SNAPSHOT'
+group 'com.fastcampus.loan'
+version '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
 
-java {
-    sourceCompatibility = '11'
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
@@ -28,7 +31,7 @@ dependencies {
 
     annotationProcessor 'org.projectlombok:lombok'
 
-    testCompileOnly 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {
